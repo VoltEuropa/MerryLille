@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en" manifest="gadget_volt.appcache">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Volt Xmas Gadget</title>
+
+    <link rel="stylesheet" href="lib/material_design_lite.1.3.0.min.css" />
+    <link rel="stylesheet" href="gadget_volt.css" />
+
+    <script src="lib/material_design_lite.1.3.0.min.js"></script>
+
+    <script src="rsvp.latest.min.js"></script>
+    <script src="renderjs.latest.min.js"></script>
+    <script src="gadget_global.js"></script>
+    <script src="gadget_volt.js"></script>
+    
+    <script id="dialog_tab_header" type="text/x-supplant">
+      <a href="#{slug}" class="mdl-tabs__tab {active}">{id}</a>
+    </script>
+
+    <script id="dialog_ny_content" type="text/x-supplant">
+      <div class="mdl-tabs__panel {active}" id="{slug}">
+        <img src="{src}" class="volt-ny-banner" alt="nope" />
+      </div>
+    </script>
+
+    <script id="dialog_tab_content" type="text/x-supplant">
+      <div class="mdl-tabs__panel {active}" id="{slug}">
+        <h3 class="mdl-tabs__content-item volt-content-header">{title}</h3>
+        <h4 class="mdl-tabs__content-item volt-content-proposal" >{proposal}</h4>
+        <p class="mdl-tabs__content-item volt-content-text"><strong class="volt-text-intro" data-i18n="rationale">Rationale</strong>&nbsp;{why}</p>
+        <p class="mdl-tabs__content-item volt-content-text"><strong class="volt-text-intro" data-i18n="measures">Steps</strong>&nbsp;{how}</p>
+        <p class="mdl-tabs__content-item volt-content-text"><strong class="volt-text-intro" data-i18n="funding">Funding</strong>&nbsp;{funding}</p>
+      </div>
+    </script>
+    
+    <script id="dialog_template" type="text/x-supplant">
+      <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect volt-dialog-content-container">
+        <div class="mdl-tabs__tab-bar">{tab_list}</div>
+        <form name="volt-dialog-close" class="volt-dialog-action-form volt-dialog-close-form volt-dialog-close-top">
+          <button type="submit" class="mdl-button volt-dialog-close"><i class="material-icons">close</i></button>
+        </form>
+        {content_list}
+        <div class="mdl-dialog__actions volt-dialog-actions stale">
+          <form name="volt-dialog-prev" class="volt-dialog-action-form volt-dialog-prev-form">
+            <button type="submit" class="mdl-button volt-dialog-close"><i class="material-icons">chevron_left</i></button>
+          </form>
+          <form name="volt-dialog-close" class="volt-dialog-action-form volt-dialog-close-form">
+            <button type="submit" class="mdl-button volt-dialog-close"><i class="material-icons">close</i></button>
+          </form>
+          <form name="volt-dialog-next" class="volt-dialog-action-form volt-dialog-next-form">
+            <button type="submit" class="mdl-button volt-dialog-close"><i class="material-icons">chevron_right</i></button>
+          </form>
+          <span data-i18n="Share this proposition:" class="volt-dialog__action-share">Share this proposition:</span>
+          <form name="volt-share-facebook" class="volt-dialog-action-form">
+            <button type="submit" class="mdl-button volt-dialog-share-fb">
+              <i class="fab fa-facebook"></i>
+            </button>
+          </form>
+          <form name="volt-share-twitter" class="volt-dialog-action-form">
+            <button type="submit" class="mdl-button volt-dialog-share-tw">
+              <i class="fab fa-twitter"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </script>
+        
+  </head>
+  <body>
+
+    <div class="mdl-dialog volt-dialog">
+      <div class="mdl-dialog__content volt-dialog-content"></div>
+    </div>
+
+    <div class="volt-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="volt-header mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <a href="https://www.volteuropa.org" class="volt-home-button" title="https://www.volteuropa.org">
+            <img class="volt-home-icon" src="img/volt.min.png" alt="VoltEuropa" />
+          </a>
+          <h1 class="volt-site-header" data-i18n="Calendar of ideas">Calendrier d'idées</h1>
+          <div class="mdl-layout-spacer"></div>
+          <!--form name="frube-open-menu-->
+          <button id="volt-open-menu" class="mdl-button mdl-js-button mdl-button--icon">
+            <i class="material-icons">language</i>
+          </button>
+          <!--/form-->
+          <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu" for="volt-open-menu">
+            <li class="mdl-menu__item mdl-menu__item--full-bleed-divider volt-custom-menu-action">
+              <i class="volt-lang volt-lang_en"></i>
+              <form name="volt-select-language" class="volt-select-language">
+                <input type="hidden" name="volt_language" value="en" />
+                <button type="submit" class="mdl-button mdl-js-button" data-i18n="english">Anglais</button>
+              </form>
+            </li>
+            <li class="mdl-menu__item mdl-menu__item--full-bleed-divider volt-custom-menu-action ">
+              <i class="volt-lang volt-lang_fr"></i>
+              <form name="volt-select-language" class="volt-select-language">
+                <input type="hidden" name="volt_language" value="fr" />
+                <button type="submit" class="mdl-button mdl-js-button" data-i18n="french">Français</button>
+              </form>
+            </li>
+          </ul>
+        </div>
+      </header>
+      <main class="volt-page-content mdl-layout__content">
+        <div id="flakes">
+          <i class="flake"></i><i class="flake"></i><i class="flake"></i><i class="flake"></i>
+          <i class="flake"></i><i class="flake"></i><i class="flake"></i><i class="flake"></i>
+          <i class="flake"></i><i class="flake"></i><i class="flake"></i><i class="flake"></i>
+          <i class="flake"></i><i class="flake"></i><i class="flake"></i><i class="flake"></i>
+          <i class="flake"></i><i class="flake"></i><i class="flake"></i><i class="flake"></i>
+          <i class="flake"></i><i class="flake"></i><i class="flake"></i><i class="flake"></i>
+          <i class="flake"></i><i class="flake"></i><i class="flake"></i><i class="flake"></i>
+          <i class="flake"></i><i class="flake"></i><i class="flake"></i><i class="flake"></i>
+          <i class="flake"></i><i class="flake"></i><i class="flake"></i><i class="flake"></i>
+          <i class="flake"></i><i class="flake"></i><i class="flake"></i><i class="flake"></i>
+          <i class="flake"></i><i class="flake"></i><i class="flake"></i><i class="flake"></i>
+          <i class="flake"></i><i class="flake"></i><i class="flake"></i><i class="flake"></i>
+          <i class="flake"></i><i class="flake"></i><i class="flake"></i><i class="flake"></i>
+          <i class="flake"></i><i class="flake"></i><i class="flake"></i><i class="flake"></i>
+        </div>
+        <label class="xmas-door_unset">
+          <input type="radio" name="xmas" class="xmas-door_clear xmas-input" value="0"/>
+        </label>
+        
+        <div class="text-center pt-2 pb-2" id="share-button-section">
+          <div class="pb-2">
+            <a class="share-button btn" href="https://www.facebook.com/sharer/sharer.php?u=https://www.joyeuxlille.fr/" target="facebookPopup" onclick="window.open(this.href, 'facebookPopup', 'left=40,top=40,height=320,width=500,toolbar=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes'); return false;">
+              <i class="fab fa-facebook-f" aria-hidden="true"></i>
+            </a>
+          </div>
+          <div class="pb-2">
+            <a class="share-button btn" href="http://twitter.com/share?url=https://www.joyeuxlille.fr/&amp;text=Une idée citoyenne à réfléchir pour Lille tous les jours jusqu'à fin 2019. #VousEnFaitesPartie #VoltLille2020" target="twitterPopup" onclick="window.open(this.href, 'twitterPopup', 'left=40,top=40,height=320,width=500,toolbar=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes'); return false;">
+              <i class="fab fa-twitter" aria-hidden="true"></i>
+            </a>
+          </div>
+          <div class="pb-2">
+            <a class="share-button btn" href="whatsapp://send?text=https%3A%2F%2Fwww.joyeuxlille.fr%2F" data-action="share/whatsapp/share" data-href="https://www.joyeuxlille.fr/" target="_blank">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            </a>
+          </div>
+          <div class="pb-2">
+            <a class="share-button btn" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.joyeuxlille.fr/" onclick="window.open(this.href,'left=40,top=40,height=320,width=500,toolbar=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes'); return false;">
+              <i class="fab fa-linkedin" aria-hidden="true"></i>
+            </a>
+          </div>
+          <div class="pb-2">
+            <a class="share-button btn" href="mailto:?body=https://joyeuxlille.fr" target="_blank">
+              <i class="material-icons" aria-hidden="true">mail_outline</i>
+            </a>
+          </div>
+        </div>
+
+        <section class="grid-1">
+          <div class="volt-introductory-text title">
+            <h2 class="volt-introductory-header" data-i18n="</span></a></h2> for Lille">Les idées citoyennes</h2>
+            <p class="volt-introductory-paragraph" data-i18n="Volt is a movement">Volt est un mouvement de citoyens partout en Europe qui se portent volontaires pour travailler vers une façon de faire de la politique plus progressiste, plus participative et plus paneuropéenne - en mettant l'accent sur la redéfinition de ce que les principes écologiques, la solidarité et la démocratie devraient signifier au 21e siècle.</p>
+            <p class="volt-introductory-paragraph" data-i18n="With this calendar">Avec ce calendrier, nous voulons présenter une sélection de propositions pour Lille - synthétisées dans des ateliers et des projets de participations citoyennes ici et ailleurs en Europe.</p> 
+            <p class="volt-introductory-paragraph" data-i18n="We are a movement">Nous sommes un mouvement qu'est devenu une partie politique. Notre but pour les municipales à Lille est de trouver des citoyens qui vont porter ces idées dans le conseil municipal. Une vingtaine des "courageux" dans les premières places et les témoins pour compléter la liste.</p>
+            <p class="volt-introductory-paragraph" data-i18n="Follow us, share">Suivez-nous, partager ces idées où parlent avec nous si vous voulez aider un projet de citoyens à Lille</p>
+            <a class="volt-introductory-hash" data-i19n="https://www.voltlille.fr/" href="https://www.voltlille.fr/"><b class="volt-introductory-bold">www.voltlille.fr</b></a>
+            <a class="volt-introductory-donate" href="mailto:info@voltlille.fr"><b class="volt-introductory-bold">info@voltlille.fr</b></a>
+          </div>
+          <div class="day-1 xmas-day">
+            <label class="xmas-door_frame is-locked">
+              <input type="radio" name="xmas" value="1" class="xmas-input" >
+                <div class="xmas-door">
+            			<h2 class="xmas-door_date"><a class="xmas-link" href="portes/1.html" title=""><span class="volt-count">1</span><span class="volt-spoiler" data-i18n=""></span></a></h2>
+            		</div>
+              </input>
+            </label>
+          </div>
+          <div class="day-2 xmas-day">
+            <label class="xmas-door_frame is-locked">
+              <input type="radio" name="xmas" value="2" class="xmas-input" >
+                <div class="xmas-door">
+            			<h2 class="xmas-door_date"><a class="xmas-link" href="portes/2.html"><span class="volt-count">2</span><span class="volt-spoiler" data-i18n=""></span></a></h2>
+            		</div>
+              </input>
+            </label>
+          </div>
+          <div class="day-3 xmas-day">
+            <label class="xmas-door_frame is-locked">
+              <input type="radio" name="xmas" value="3" class="xmas-input" >
+                <div class="xmas-door">
+            			<h2 class="xmas-door_date"><a class="xmas-link" href="portes/3.html"><span class="volt-count">3</span><span class="volt-spoiler" data-i18n=""></span></a></h2>
+            		</div>
+              </input>
+            </label>
+          </div>
+          <div class="day-4 xmas-day">
+            <label class="xmas-door_frame is-locked">
+              <input type="radio" name="xmas" value="4" class="xmas-input" >
+                <div class="xmas-door">
+            			<h2 class="xmas-door_date"><a class="xmas-link" href="portes/4.html"><span class="volt-count">4</span><span class="volt-spoiler" data-i18n=""></span></a></h2>
+            		</div>
+              </input>
+            </label>
+          </div>
+          <div class="day-5 xmas-day">
+            <label class="xmas-door_frame is-locked">
+              <input type="radio" name="xmas" value="5" class="xmas-input" >
+                <div class="xmas-door">
+            			<h2 class="xmas-door_date"><a class="xmas-link" href="portes/5.html"><span class="volt-count">5</span><span class="volt-spoiler" data-i18n=""></span></a></h2>
+            		</div>
+              </input>
+            </label>
+          </div>
+          <div class="day-6 xmas-day">
+            <label class="xmas-door_frame is-locked">
+              <input type="radio" name="xmas" value="6" class="xmas-input" >
+                <div class="xmas-door">
+            			<h2 class="xmas-door_date"><a class="xmas-link" href="portes/6.html"><span class="volt-count">6</span><span class="volt-spoiler" data-i18n=""></span></a></h2>
+            		</div>
+              </input>
+            </label>
+          </div>
+          <div class="day-7 xmas-day">
+            <label class="xmas-door_frame is-locked">
+              <input type="radio" name="xmas" value="7" class="xmas-input" >
+                <div class="xmas-door">
+            			<h2 class="xmas-door_date"><a class="xmas-link" href="portes/7.html"><span class="volt-count">7</span><span class="volt-spoiler" data-i18n=""></span></a></h2>
+            		</div>
+              </input>
+            </label>
+          </div>
+          <div class="day-8 xmas-day">
+            <label class="xmas-door_frame is-locked">
+              <input type="radio" name="xmas" value="8" class="xmas-input" >
+                <div class="xmas-door">
+            			<h2 class="xmas-door_date"><a class="xmas-link" href="portes/8.html"><span class="volt-count">8</span><span class="volt-spoiler" data-i18n=""></span></a></h2>
+            		</div>
+              </input>
+            </label>
+          </div>
+          <div class="day-9 xmas-day">
+            <label class="xmas-door_frame is-locked">
+              <input type="radio" name="xmas" value="9" class="xmas-input" >
+                <div class="xmas-door">
+            			<h2 class="xmas-door_date"><a class="xmas-link" href="portes/9.html"><span class="volt-count">9</span><span class="volt-spoiler" data-i18n=""></span></a></h2>
+            		</div>
+              </input>
+            </label>
+          </div>
+          <div class="day-10 xmas-day">
+            <label class="xmas-door_frame is-locked">
+              <input type="radio" name="xmas" value="10" class="xmas-input" >
+                <div class="xmas-door">
+            			<h2 class="xmas-door_date"><a class="xmas-link" href="portes/10.html"><span class="volt-count">10</span><span class="volt-spoiler" data-i18n=""></span></a></h2>
+            		</div>
+              </input>
+            </label>
+          </div>
+          <div class="day-11 xmas-day">
+            <label class="xmas-door_frame is-locked">
+              <input type="radio" name="xmas" value="11" class="xmas-input" >
+                <div class="xmas-door">
+            			<h2 class="xmas-door_date"><a class="xmas-link" href="portes/11.html"><span class="volt-count">11</span><span class="volt-spoiler" data-i18n=""></span></a></h2>
+            		</div>
+              </input>
+            </label>
+          </div>
+          <div class="day-12 xmas-day">
+            <label class="xmas-door_frame is-locked">
+              <input type="radio" name="xmas" value="12" class="xmas-input" >
+                <div class="xmas-door">
+            			<h2 class="xmas-door_date"><a class="xmas-link" href="portes/12.html"><span class="volt-count">12</span><span class="volt-spoiler" data-i18n=""></span></a></h2>
+            		</div>
+              </input>
+            </label>
+          </div>
+          <div class="day-13 xmas-day">
+            <label class="xmas-door_frame is-locked">
+              <input type="radio" name="xmas" value="13" class="xmas-input" >
+                <div class="xmas-door">
+            			<h2 class="xmas-door_date"><a class="xmas-link" href="portes/13.html"><span class="volt-count">13</span><span class="volt-spoiler" data-i18n=""></span></a></h2>
+            		</div>
+              </input>
+            </label>
+          </div>
+          <div class="day-14 xmas-day">
+            <label class="xmas-door_frame is-locked">
+              <input type="radio" name="xmas" value="14" class="xmas-input" >
+                <div class="xmas-door">
+            			<h2 class="xmas-door_date"><a class="xmas-link" href="portes/14.html"><span class="volt-count">14</span><span class="volt-spoiler" data-i18n=""></span></a></h2>
+            		</div>
+              </input>
+            </label>
+          </div>
+          <div class="day-15 xmas-day">
+            <label class="xmas-door_frame is-locked">
+              <input type="radio" name="xmas" value="15" class="xmas-input" >
+                <div class="xmas-door">
+            			<h2 class="xmas-door_date"><a class="xmas-link" href="portes/15.html"><span class="volt-count">15</span><span class="volt-spoiler" data-i18n=""></span></a></h2>
+            		</div>
+              </input>
+            </label>
+          </div>
+          <div class="day-16 xmas-day">
+            <label class="xmas-door_frame is-locked">
+              <input type="radio" name="xmas" value="16" class="xmas-input" >
+                <div class="xmas-door">
+            			<h2 class="xmas-door_date"><a class="xmas-link" href="portes/16.html"><span class="volt-count">16</span><span class="volt-spoiler" data-i18n=""></span></a></h2>
+            		</div>
+              </input>
+            </label>
+          </div>
+          <div class="day-17 xmas-day">
+            <label class="xmas-door_frame is-locked">
+              <input type="radio" name="xmas" value="17" class="xmas-input" >
+                <div class="xmas-door">
+            			<h2 class="xmas-door_date"><a class="xmas-link" href="portes/17.html"><span class="volt-count">17</span><span class="volt-spoiler" data-i18n=""></span></a></h2>
+            		</div>
+              </input>
+            </label>
+          </div>
+          <div class="day-18 xmas-day">
+            <label class="xmas-door_frame is-locked">
+              <input type="radio" name="xmas" value="18" class="xmas-input" >
+                <div class="xmas-door">
+            			<h2 class="xmas-door_date"><a class="xmas-link" href="portes/18.html"><span class="volt-count">18</span><span class="volt-spoiler" data-i18n=""></span></a></h2>
+            		</div>
+              </input>
+            </label>
+          </div>
+          <div class="day-19 xmas-day">
+            <label class="xmas-door_frame is-locked">
+              <input type="radio" name="xmas" value="19" class="xmas-input" >
+                <div class="xmas-door">
+            			<h2 class="xmas-door_date"><a class="xmas-link" href="portes/19.html"><span class="volt-count">19</span><span class="volt-spoiler" data-i18n=""></span></a></h2>
+            		</div>
+              </input>
+            </label>
+          </div>
+          <div class="day-20 xmas-day">
+            <label class="xmas-door_frame is-locked">
+              <input type="radio" name="xmas" value="20" class="xmas-input" >
+                <div class="xmas-door">
+            			<h2 class="xmas-door_date"><a class="xmas-link" href="portes/20.html"><span class="volt-count">20</span><span class="volt-spoiler" data-i18n=""></span></a></h2>
+            		</div>
+              </input>
+            </label>
+          </div>
+          <div class="day-21 xmas-day">
+            <label class="xmas-door_frame is-locked">
+              <input type="radio" name="xmas" value="21" class="xmas-input" >
+                <div class="xmas-door">
+            			<h2 class="xmas-door_date"><a class="xmas-link" href="portes/21.html"><span class="volt-count">21</span><span class="volt-spoiler" data-i18n=""></span></a></h2>
+            		</div>
+              </input>
+            </label>
+          </div>
+          <div class="day-22 xmas-day">
+            <label class="xmas-door_frame is-locked">
+              <input type="radio" name="xmas" value="22" class="xmas-input" >
+                <div class="xmas-door">
+            			<h2 class="xmas-door_date"><a class="xmas-link" href="portes/22.html"><span class="volt-count">22</span><span class="volt-spoiler" data-i18n=""></span></a></h2>
+            		</div>
+              </input>
+            </label>
+          </div>
+          <div class="day-23 xmas-day">
+            <label class="xmas-door_frame is-locked">
+              <input type="radio" name="xmas" value="23" class="xmas-input" >
+                <div class="xmas-door">
+            			<h2 class="xmas-door_date"><a class="xmas-link" href="portes/23.html"><span class="volt-count">23</span><span class="volt-spoiler" data-i18n=""></span></a></h2>
+            		</div>
+              </input>
+            </label>
+          </div>
+          <div class="day-24 xmas-day">
+            <label class="xmas-door_frame is-locked">
+              <input type="radio" name="xmas" value="24" class="xmas-input" >
+                <div class="xmas-door">
+            			<h2 class="xmas-door_date"><a class="xmas-link" href="portes/24.html"><span class="volt-count">24</span><span class="volt-spoiler" data-i18n=""></span></a></h2>
+            		</div>
+              </input>
+            </label>
+          </div>
+          <div class="volt-introductory-text prolong">
+            <p class="volt-introductory-paragraph" data-i18n="and since there are more propositions">... and since we have more propositions, we will continue until the end of the year.</p>
+          </div>
+          <div class="day-25 xmas-day">
+            <label class="xmas-door_frame is-locked">
+              <input type="radio" name="xmas" value="25" class="xmas-input" >
+                <div class="xmas-door">
+            			<h2 class="xmas-door_date"><a class="xmas-link" href="portes/25.html"><span class="volt-count">25</span><span class="volt-spoiler" data-i18n=""></span></a></h2>
+            		</div>
+              </input>
+            </label>
+          </div>
+          <div class="day-26 xmas-day">
+            <label class="xmas-door_frame is-locked">
+              <input type="radio" name="xmas" value="26" class="xmas-input" >
+                <div class="xmas-door">
+            			<h2 class="xmas-door_date"><a class="xmas-link" href="portes/26.html"><span class="volt-count">26</span><span class="volt-spoiler" data-i18n=""></span></a></h2>
+            		</div>
+              </input>
+            </label>
+          </div>
+          <div class="day-27 xmas-day">
+            <label class="xmas-door_frame is-locked">
+              <input type="radio" name="xmas" value="27" class="xmas-input" >
+                <div class="xmas-door">
+            			<h2 class="xmas-door_date"><a class="xmas-link" href="portes/27.html"><span class="volt-count">27</span><span class="volt-spoiler" data-i18n=""></span></a></h2>
+            		</div>
+              </input>
+            </label>
+          </div>
+          <div class="day-28 xmas-day">
+            <label class="xmas-door_frame is-locked">
+              <input type="radio" name="xmas" value="28" class="xmas-input" >
+                <div class="xmas-door">
+            			<h2 class="xmas-door_date"><a class="xmas-link" href="portes/28.html"><span class="volt-count">28</span><span class="volt-spoiler" data-i18n=""></span></a></h2>
+            		</div>
+              </input>
+            </label>
+          </div>
+          <div class="day-29 xmas-day">
+            <label class="xmas-door_frame is-locked">
+              <input type="radio" name="xmas" value="29" class="xmas-input" >
+                <div class="xmas-door">
+            			<h2 class="xmas-door_date"><a class="xmas-link" href="portes/29.html"><span class="volt-count">29</span><span class="volt-spoiler" data-i18n=""></span></a></h2>
+            		</div>
+              </input>
+            </label>
+          </div>
+          <div class="day-30 xmas-day">
+            <label class="xmas-door_frame is-locked">
+              <input type="radio" name="xmas" value="30" class="xmas-input" >
+                <div class="xmas-door">
+            			<h2 class="xmas-door_date"><a class="xmas-link" href="portes/30.html"><span class="volt-count">30</span><span class="volt-spoiler" data-i18n=""></span></a></h2>
+            		</div>
+              </input>
+            </label>
+          </div>
+          <div class="day-31 xmas-day">
+            <label class="xmas-door_frame is-locked">
+              <input type="radio" name="xmas" value="31" class="xmas-input" >
+                <div class="xmas-door">
+            			<h2 class="xmas-door_date"><a class="xmas-link" href="portes/31.html"><span class="volt-count">31</span><span class="volt-spoiler" data-i18n=""></span></a></h2>
+            		</div>
+              </input>
+            </label>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div data-gadget-url="gadget_jio.html"
+      data-gadget-scope="volt_jio"
+      data-gadget-sandbox="public">
+    </div>
+  </body>
+</html>
+
+

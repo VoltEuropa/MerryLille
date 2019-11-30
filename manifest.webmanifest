@@ -1,0 +1,29 @@
+{
+  "manifest_version": 1,
+  "version": "0.0.1",
+  "name": "Volt Lille Calendrier",
+  "short_name": "Volt Calendrier",
+  "description": "Une idée citoyenne à penser pour Lille tous les jours jusqu'à fin 2019.",
+  "default_locale": "fr",
+  "icons": [
+        {
+            "src": "img/FR-Graphics.Logo.Volt.Lille.Christmas.196x196.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "img/FR-Graphics.Logo.Volt.Lille.Christmas.256x256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "img/FR-Graphics.Logo.Volt.Lille.Christmas.512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#612095",
+  "theme_color": "#612095"
+}
