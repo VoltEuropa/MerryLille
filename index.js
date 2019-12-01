@@ -52,7 +52,7 @@
         tag.textContent = dictionary[tag.getAttribute('data-i18n')];
       }
       // Sonderlocke
-      gadget.element.querySelector('[data-i19n]').setAttribute("href", dictionary[URL]);
+      //gadget.element.querySelector('[data-i19n]').setAttribute("href", dictionary[URL]);
     })
 
     /////////////////////////////
@@ -77,7 +77,7 @@
           p.textContent = "Sorry, we messed up or your browser does not seem to support this application :( ";
           a.classList.add("volt-error-link");
           a.textContent = "www.volteuropa.org";
-          a.setAttribute("href", "https://www.volteuropa.org/");
+          a.setAttribute("href", "https://www.voltfrance.org/");
           fragment.appendChild(p);
           fragment.appendChild(br);
           fragment.appendChild(a);
