@@ -128,6 +128,13 @@
   background-color: transparent;
 }
 /* ============================= HEADER ====================================== */
+.volt-reverse {
+  color: #fff;
+  margin-left: -2.4em;
+  padding-right: 1em;
+  font-size: 1.5em;
+  margin-top: .25em;
+}
 .volt-home-button {
   margin-right: 1em;
 }
@@ -584,13 +591,13 @@ background-image:
   grid-template-rows: auto;
   grid-gap: 1.5em;
   grid-template-columns: repeat(6, 1fr);
-  grid-template-areas:    "t      t       t       d2      d7      d8"
-                          "t      t       t       d4      d11     d12"
-                          "t      t       t       d19     d9      d13"
-                          "t      t       t       d3      d23     d16"
-                          "t      t       t       d14     d10     d15"
-                          "d6     d1      d24     d24     d21     d20"
-                          "d17    d18     d24     d24     d5      d22"
+  grid-template-areas:    "t      t       t       d1      d2      d3"
+                          "t      t       t       d4      d5      d6"
+                          "t      t       t       d7      d8      d9"
+                          "t      t       t       d10     d11     d12"
+                          "t      t       t       d13     d14     d15"
+                          "d16    d17     d18     d19     d24     d24"
+                          "d20    d21     d22     d23     d24     d24"
                           "x      x       x       x       x       d25"
                           "d26    d27     d28     d29     d30     d31";
 }
@@ -866,6 +873,7 @@ background-image:
 	animation: shake .7s;
 }
 .volt-spoiler {
+  font-weight: bold;
   font-size: .25em;
   display: block;
   line-height: 1em;
@@ -1400,7 +1408,7 @@ background-image:
 .volt-introductory-text {
   color: #fff;
   font-family: Ubuntu;
-  background-color: rgba(97,32,149,0.5);
+  background-color: rgba(97,32,149,0.75);
   padding: 2em 1em;
   margin: auto
 }
@@ -1467,7 +1475,7 @@ background-image:
 #share-button-section {
   background: transparent;
   position: fixed;
-  top: 15%;
+  top: 33%;
   left: 2%;
   z-index: 10;
 }
@@ -1478,15 +1486,100 @@ background-image:
   border-radius: 3rem;
   border: none;
   padding: 0px;
-  width: 25px;
-  height: 25px;
+  width: 32px;
+  height: 32px;
   display: block;
   text-align: center;
   background: #612095;
   margin: .5em 0;
 }
 #share-button-section .share-button i {
-  font-size: 15px;
-  padding: 5px 0px;
+  font-size: 20px;
+  padding: 7px 0px;
   color: #fff;
+}
+/* ========================= Cookie Consent ==================================*/
+.volt-cookie__notice-wrapper {
+  color: white;
+  background: #a577d1;
+  opacity: .9;
+  font-size: 1.25em;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  padding: 0.5em 1em;
+  z-index: 1000;
+  right: 0;
+  font-family: Ubuntu;
+}
+.volt-cookie__content-form {
+  display: inline-block;
+  padding-left: .5em;
+}
+.volt-cookie__notice-text {
+  color: #fff;
+}
+.volt-cookie__notice-wrapper .volt-form__submit-button {
+  color: #fff;
+  display: inline-block;
+  padding: .25em;
+  background: #621095;
+  font-family: Ubuntu;
+  font-size: 1em;
+  border: 0px solid #fff;
+  cursor: pointer;
+}
+/* thx: jQuery Mobile */
+.volt-hidden {
+  position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	clip: rect(1px,1px,1px,1px);
+  visibility: hidden;
+}
+/* ======================= Content Pages ==================================== */
+.volt-content__box {
+  width: 60%;
+  padding: 0 1em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+.volt-content__header {
+  font-size: 2.5em;
+  padding: 0 0 0.5em 0;
+}
+.volt-content__text {
+  font-size: 1.25em;
+  line-height: 1.2em;
+  padding-top: .25em;
+  padding-bottom: .25em;
+}
+@media only screen and (max-width: 48em) {
+  .volt-content__box {
+    width: 90%;
+  }
+}
+.volt-door__teaser-image {
+  max-width: 100%;
+}
+.volt-content__box figcaption {
+  text-align: center;
+  font-style: italic;
+  margin-bottom: .5em;
+  font-size: 1em;
+  height: 2em;
+  color: #fff;
+}
+@media (max-width: 54em) {
+  .volt-content__box figcaption {
+    margin-top: 0;
+  }
+}
+.volt-content__source {
+  color: #fff;
+  font-family: Ubuntu;
+  font-size: 1.25em;
 }
