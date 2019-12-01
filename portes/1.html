@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Volt Lille | La bande verte</title>
+
+    <meta name="application-name" content="Volt Lille | La bande verte">
+    <meta name="description" content="Développer une nouvelle bande verte à travers Lille en couvrant les autoroutes avec une toiture et parc végétalisé.">
+    <meta name="url" content="https://www.joyeuxlille.fr/portes/1.html">
+    <meta name="keywords" content="Volt, Politique, Citoyens, Municipales, Municipales2020" />
+
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="Volt Lille | La bande verte">
+    <meta property="og:description" content="Développer une nouvelle bande verte à travers Lille en couvrant les autoroutes avec une toiture et parc végétalisé.">
+    <meta property="og:url" content="https://www.joyeuxlille.fr/portes/1.html">
+    <meta property="og:locale" content="en_en">
+    <meta property="og:image" content="https://www.joyeuxlille.fr/img/FR-Images.Lille.Municipales.Bande.Verte.png" />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:site" content="@voltlille" />
+    <meta name="twitter:title" content="Volt Lille | La bande verte">
+    <meta name="twitter:description" content="Développer une nouvelle bande verte à travers Lille en couvrant les autoroutes avec une toiture et parc végétalisé.">
+    <meta name="twitter:url" content="https://www.joyeuxlille.fr/portes/1.html">
+    <meta name="twitter:creator" content="@svenfranck">
+    <meta name="twitter:image" content="https://www.joyeuxlille.fr/img/FR-Images.Lille.Municipales.Bande.Verte.png" />
+
+    <link rel="icon" href="img/favicon.min.png">
+
+    <link rel="stylesheet" href="../lib/material_design_lite.1.3.0.min.css" />
+    <link rel="stylesheet" href="../gadget_volt.css" />
+    
+    <!--script type="text/javascript">
+      if (window.document.cookie.match('(^|;) ?init=([^;]*)(;|$)')) {
+        window.document.getElementsByTagName("html")[0].classList.add("volt-override-splash");
+      }
+    </script-->
+
+    <style type="text/css">
+      .volt-seo-content * {
+        text-color: #fff;
+      }
+      .volt-override-splash .volt-splash:before {
+        content: none !important;
+      }
+      .volt-splash:before {
+        width: 100%;
+        position: absolute;
+        /*background: url("../img/FR-Lille.Image.Elections.Municipales.Vous.En.Faites.Partie.png") no-repeat center center;*/
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: block;
+        height: 100%;
+        overflow: hidden;
+        z-index: 999999;
+        background-color: #612095;
+        content: "";
+      }
+      @media (max-width: 54em) {
+        .volt-splash:before {
+          background-size: 70%;  
+        }
+      }
+      .volt-seo-content * {
+        color: #612095;
+      }
+    </style>
+
+    <script src="../lib/material_design_lite.1.3.0.min.js"></script>
+    <script src="../rsvp.latest.min.js"></script>
+    <script src="../renderjs.latest.min.js"></script>
+    <script src="../gadget_global.js"></script>
+    <script src="../gadget_volt.js"></script>
+
+  </head>
+  <body class="volt-splash volt-body">
+    <div class="volt-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="volt-header mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <a class="volt-reverse" href="../index.html">
+            <i class="material-icons">chevron_left</i>
+          </a>
+          <a href="https://www.volteuropa.org" class="volt-home-button" title="https://www.volteuropa.org">
+            <img class="volt-home-icon" src="../img/volt.min.png" alt="VoltEuropa" />
+          </a>
+          <h1 class="volt-site-header" data-i18n="Calendar of ideas">Calendrier d'idées</h1>
+          <div class="mdl-layout-spacer"></div>
+          <!--form name="frube-open-menu-->
+          <button id="volt-open-menu" class="mdl-button mdl-js-button mdl-button--icon">
+            <i class="material-icons">language</i>
+          </button>
+          <!--/form-->
+          <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu" for="volt-open-menu">
+            <li class="mdl-menu__item mdl-menu__item--full-bleed-divider volt-custom-menu-action">
+              <i class="volt-lang volt-lang_en"></i>
+              <form name="volt-select-language" class="volt-select-language">
+                <input type="hidden" name="volt_language" value="en" />
+                <button type="submit" class="mdl-button mdl-js-button" data-i18n="english">Anglais</button>
+              </form>
+            </li>
+            <li class="mdl-menu__item mdl-menu__item--full-bleed-divider volt-custom-menu-action ">
+              <i class="volt-lang volt-lang_fr"></i>
+              <form name="volt-select-language" class="volt-select-language">
+                <input type="hidden" name="volt_language" value="fr" />
+                <button type="submit" class="mdl-button mdl-js-button" data-i18n="french">Français</button>
+              </form>
+            </li>
+          </ul>
+        </div>
+      </header>
+      <main class="volt-page-content mdl-layout__content">
+        <div id="flakes">
+          <i class="flake"></i><i class="flake"></i><i class="flake"></i><i class="flake"></i>
+          <i class="flake"></i><i class="flake"></i><i class="flake"></i><i class="flake"></i>
+          <i class="flake"></i><i class="flake"></i><i class="flake"></i><i class="flake"></i>
+          <i class="flake"></i><i class="flake"></i><i class="flake"></i><i class="flake"></i>
+          <i class="flake"></i><i class="flake"></i><i class="flake"></i><i class="flake"></i>
+          <i class="flake"></i><i class="flake"></i><i class="flake"></i><i class="flake"></i>
+          <i class="flake"></i><i class="flake"></i><i class="flake"></i><i class="flake"></i>
+          <i class="flake"></i><i class="flake"></i><i class="flake"></i><i class="flake"></i>
+          <i class="flake"></i><i class="flake"></i><i class="flake"></i><i class="flake"></i>
+          <i class="flake"></i><i class="flake"></i><i class="flake"></i><i class="flake"></i>
+          <i class="flake"></i><i class="flake"></i><i class="flake"></i><i class="flake"></i>
+          <i class="flake"></i><i class="flake"></i><i class="flake"></i><i class="flake"></i>
+          <i class="flake"></i><i class="flake"></i><i class="flake"></i><i class="flake"></i>
+          <i class="flake"></i><i class="flake"></i><i class="flake"></i><i class="flake"></i>
+        </div>
+        <label class="xmas-door_unset">
+          <input type="radio" name="xmas" class="xmas-door_clear xmas-input" value="0"/>
+        </label>
+        
+        <div class="text-center pt-2 pb-2" id="share-button-section">
+          <div class="pb-2">
+            <a class="share-button btn" href="https://www.facebook.com/sharer/sharer.php?u=https://www.joyeuxlille.fr/portes/1.html" target="facebookPopup" onclick="window.open(this.href, 'facebookPopup', 'left=40,top=40,height=320,width=500,toolbar=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes'); return false;">
+              <i class="fab fa-facebook-f" aria-hidden="true"></i>
+            </a>
+          </div>
+          <div class="pb-2">
+            <a class="share-button btn" href="http://twitter.com/share?url=https://www.joyeuxlille.fr/portes/1.html&amp;text=Volt Lille - Les idées citoyennes - La Bande Verte #VousEnFaitesPartie #VoltLille2020" target="twitterPopup" onclick="window.open(this.href, 'twitterPopup', 'left=40,top=40,height=320,width=500,toolbar=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes'); return false;">
+              <i class="fab fa-twitter" aria-hidden="true"></i>
+            </a>
+          </div>
+          <div class="pb-2">
+            <a class="share-button btn" href="whatsapp://send?text=https%3A%2F%2Fwww.joyeuxlille.fr%2Fportes%2F1.html%2F" data-action="share/whatsapp/share" data-href="https://www.joyeuxlille.fr/" target="_blank">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            </a>
+          </div>
+          <div class="pb-2">
+            <a class="share-button btn" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.joyeuxlille.fr/portes/1.html" onclick="window.open(this.href,'left=40,top=40,height=320,width=500,toolbar=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes'); return false;">
+              <i class="fab fa-linkedin" aria-hidden="true"></i>
+            </a>
+          </div>
+          <div class="pb-2">
+            <a class="share-button btn" href="mailto:?body=https://joyeuxlille.fr/portes/1.html" target="_blank">
+              <i class="material-icons" aria-hidden="true">mail_outline</i>
+            </a>
+          </div>
+        </div>
+
+        <section class="volt-content__box">
+          <div class="volt-introductory-text">
+            <h1 class="volt-site-header volt-content__header" data-i18n="Green Band">La bande verte</h1>
+            <img class="volt-door__teaser-image" src="../img/FR-Images.Lille.Municipales.Bande.Verte.png" />
+            <figcaption data-i18n="">En l'absence d'alternatives et d'espace il faut imaginer</figcaption>
+            <p class="volt-content__text" data-i18n="Develop a new green band">Développer une nouvelle bande verte à travers Lille en couvrant les autoroutes A1/A22/A25/N356 avec une toiture et parc végétalisé au-dessus. Les efforts similaires sont en cours dans autres villes pour ajouter les espaces verts, réduire considérablement la pollution d'air et de la bruit. Pour Lille, cette bande et parc sont aussi un moyen de connexion naturelle avec les quartiers Fives et Lille Sud et les passerelles de plus naturel à Lillenium, entre Fives Cail et Saint Sauveur et entre Parc Matisse et le Jardin de Géants.</p>
+            <img class="volt-door__teaser-image" src="../img/FR-Images.Lille.Municipales.Bande.Verte.Map.png" />
+            <figcaption data-i18n="Zone that could be covered">La zone qui pourrait être couverte</figcaption>
+            <p class="volt-content__text" data-i18n="Certainly an ambitious project">Une idée certes ambitieuse, mais compte tenu du manque d'espace disponible et de l'autoroute qui sépare Lille, un tel projet pourrait répondre à de multiples enjeux : créer un espace vert récréatif de grande envergure, relier les différents quartiers de la ville, réduire le bruit et la pollution atmosphérique. C'est l'espace, la ville peut mettre à disposition et un projet phare potentiel pour Lille.</p>
+            <p class="volt-content__text" data-i18n="Information Souces">Sources de renseignements</p>
+            <ul>
+              <li><a class="volt-content__source" href="https://www.dezeen.com/2019/04/03/bqp-big-news-bqe-brooklyn-highway-park/" target="_blank" data-i18n="(en) De Zeen - Brooklyn Parc">(en) De Zeen - Brooklyn Parc d’autoroute</a></li>
+              <li><a class="volt-content__source" href="https://en.globes.co.il/en/article-plan-approved-to-cover-ayalon-highway-1001139393" target="_blank" data-i18n="(en) Globes - A roof">(en) Globes - Un toit sur l’autoroute d’Ayalon</a></li>
+            </ul>
+          </div>
+          
+        </section>
+
+        <!-- cookie consent -->
+        <div class="volt-cookie__notice-wrapper volt-hidden">
+          <span class="volt-cookie__notice-text">
+            <span data-i18n="This site uses cookies">Ce site web utilise des « cookies » afin d'améliorer votre expérience et aux fins de suivi.</span>
+            <a href="https://voltweb.eu/page/france/lille/fr/site-confidentialite-des-donnees.html" target="_blank" class="volt-cookie__notice-text" data-i18n="Read our privacy policy">Consulter notre Politique de confidentialité</a>.
+          </span>
+          <form name="volt-cookie__consent" class="volt-cookie__content-form">
+            <button type="submit" class="volt-form__submit-button">
+              <span class="volt-cookie__notice-submit" data-i18n="Confirm">J'ai compris !</span>
+            </button>
+          </form>
+        </div>
+        
+      </main>
+    </div>
+
+    <div data-gadget-url="../gadget_jio.html"
+      data-gadget-scope="volt_jio"
+      data-gadget-sandbox="public">
+    </div>
+  </body>
+</html>
+
+  </body>
+</html>
+
+
+
