@@ -98,7 +98,7 @@
   function getConfig(my_language) {
     return {
       "type": "volt_storage",
-      "repo": "MerryVolt",
+      "repo": "MerryLille",
       "path": "lang/" + my_language
       //"__debug": "https://softinst103163.host.vifib.net/public/MerryLille/lang/" + my_language + "/debug.json"
     };
