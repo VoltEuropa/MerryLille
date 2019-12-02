@@ -1326,6 +1326,13 @@ background-image:
 .volt-select-language .mdl-menu__container {
   background: #fff;
 }
+.volt-open__menu-button {
+  color: #fff;
+}
+.volt-open__menu-button .volt-open__menu-text {
+  text-transform: none;
+  color: #fff;
+}
 .volt-lang {
   background: url(img/flags.min.png) no-repeat;
   position: absolute;
@@ -1582,4 +1589,39 @@ background-image:
   color: #fff;
   font-family: Ubuntu;
   font-size: 1.25em;
+}
+/* ======================= Paginator ========================================= */
+.volt-disabled {
+  opacity: .3;
+  pointer-events: none;
+}
+.volt-paginator__right,
+.volt-paginator__left{
+  position: fixed;
+  top: 90%;
+  z-index: 10;
+}
+.volt-paginator__right {
+  right: 3%;
+}
+.volt-paginator__left {
+  left: 3%;
+}
+.volt-paginator__left .volt-paginator__button,
+.volt-paginator__right .volt-paginator__button {
+  border-radius: 3rem;
+  border: none;
+  padding: 0px;
+  width: 32px;
+  height: 32px;
+  display: block;
+  text-align: center;
+  background: #612095;
+  margin: .5em 0;
+}
+.volt-paginator__left .volt-paginator__button i,
+.volt-paginator__right .volt-paginator__button i{
+  font-size: 20px;
+  padding: 7px 0px;
+  color: #fff;
 }
