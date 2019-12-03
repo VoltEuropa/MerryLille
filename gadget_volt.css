@@ -1570,7 +1570,11 @@ background-image:
   }
 }
 .volt-door__teaser-image {
-  max-width: 100%;
+  max-width: 80%;
+  width: auto;
+  margin: 0 auto;
+  text-align: center;
+  display: block;
 }
 .volt-content__box figcaption {
   text-align: center;
@@ -1589,6 +1593,19 @@ background-image:
   color: #fff;
   font-family: Ubuntu;
   font-size: 1.25em;
+}
+.volt-content__subheader {
+  color: #fff;
+  text-align: center;
+  font-size: 1em;
+  margin-top: -1.5em;
+  padding-top: 0;
+}
+.volt-content__subheader a,
+.volt-content__subheader a:active,
+.volt-content__subheader a:visited,
+.volt-content__subheader a:focus {
+  color: #fff;
 }
 /* ======================= Paginator ========================================= */
 .volt-disabled {
