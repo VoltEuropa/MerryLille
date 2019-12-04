@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" manifest="gadget_volt.appcache">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Volt Calendar Gadget</title>
+
+    <link rel="stylesheet" href="lib/material_design_lite.1.3.0.min.css" />
+    <link rel="stylesheet" href="gadget_volt.css" />
+    
+    <script src="lib/material_design_lite.1.3.0.min.js"></script>
+
+    <script src="rsvp.latest.min.js"></script>
+    <script src="renderjs.latest.min.js"></script>
+    <script src="gadget_global.js"></script>
+    <script src="gadget_volt.js"></script>
+
+  </head>
+  <body>
+<div class="volt-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="volt-header mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <a class="volt-reverse" href="../index.html">
+            <i class="material-icons">chevron_left</i>
+          </a>
+          <a href="https://www.voltfrance.org" class="volt-home-button" title="https://www.voltfrance.org">
+            <img class="volt-home-icon" src="../img/volt.min.png" alt="VoltFrance" />
+          </a>
+          <h1 class="volt-site-header" data-i18n="Calendar of ideas">Calendrier d'idées</h1>
+          <div class="mdl-layout-spacer"></div>
+          <!--form name="frube-open-menu-->
+          <button id="volt-open-menu" class="mdl-button mdl-js-button volt-open__menu-button">
+            <span class="volt-open__menu-text" class="Language">Langue</span>
+            <i class="material-icons">language</i>
+          </button>
+          <!--/form-->
+          <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu" for="volt-open-menu">
+            <li class="mdl-menu__item mdl-menu__item--full-bleed-divider volt-custom-menu-action">
+              <i class="volt-lang volt-lang_en"></i>
+              <form name="volt-select-language" class="volt-select-language">
+                <input type="hidden" name="volt_language" value="en" />
+                <button type="submit" class="mdl-button mdl-js-button" data-i18n="english">Anglais</button>
+              </form>
+            </li>
+            <li class="mdl-menu__item mdl-menu__item--full-bleed-divider volt-custom-menu-action ">
+              <i class="volt-lang volt-lang_fr"></i>
+              <form name="volt-select-language" class="volt-select-language">
+                <input type="hidden" name="volt_language" value="fr" />
+                <button type="submit" class="mdl-button mdl-js-button" data-i18n="french">Français</button>
+              </form>
+            </li>
+          </ul>
+        </div>
+      </header>
+      <main class="volt-page-content mdl-layout__content">
+        <div id="flakes">
+          <i class="flake"></i><i class="flake"></i><i class="flake"></i><i class="flake"></i>
+          <i class="flake"></i><i class="flake"></i><i class="flake"></i><i class="flake"></i>
+          <i class="flake"></i><i class="flake"></i><i class="flake"></i><i class="flake"></i>
+          <i class="flake"></i><i class="flake"></i><i class="flake"></i><i class="flake"></i>
+          <i class="flake"></i><i class="flake"></i><i class="flake"></i><i class="flake"></i>
+          <i class="flake"></i><i class="flake"></i><i class="flake"></i><i class="flake"></i>
+          <i class="flake"></i><i class="flake"></i><i class="flake"></i><i class="flake"></i>
+          <i class="flake"></i><i class="flake"></i><i class="flake"></i><i class="flake"></i>
+          <i class="flake"></i><i class="flake"></i><i class="flake"></i><i class="flake"></i>
+          <i class="flake"></i><i class="flake"></i><i class="flake"></i><i class="flake"></i>
+          <i class="flake"></i><i class="flake"></i><i class="flake"></i><i class="flake"></i>
+          <i class="flake"></i><i class="flake"></i><i class="flake"></i><i class="flake"></i>
+          <i class="flake"></i><i class="flake"></i><i class="flake"></i><i class="flake"></i>
+          <i class="flake"></i><i class="flake"></i><i class="flake"></i><i class="flake"></i>
+        </div>
+        <label class="xmas-door_unset">
+          <input type="radio" name="xmas" class="xmas-door_clear xmas-input" value="0"/>
+        </label>
+        
+        <div class="text-center pt-2 pb-2" id="share-button-section">
+          <div class="pb-2">
+            <a class="share-button btn" href="https://www.facebook.com/sharer/sharer.php?u=https://www.joyeuxlille.fr/portes/4.html" target="facebookPopup" onclick="window.open(this.href, 'facebookPopup', 'left=40,top=40,height=320,width=500,toolbar=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes'); return false;">
+              <i class="fab fa-facebook-f" aria-hidden="true"></i>
+            </a>
+          </div>
+          <div class="pb-2">
+            <a class="share-button btn" href="http://twitter.com/share?url=https://www.joyeuxlille.fr/portes/4.html&amp;text=Volt Lille - Les idées citoyennes - Une monnaie locale #VousEnFaitesPartie #VoltLille2020" target="twitterPopup" onclick="window.open(this.href, 'twitterPopup', 'left=40,top=40,height=320,width=500,toolbar=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes'); return false;">
+              <i class="fab fa-twitter" aria-hidden="true"></i>
+            </a>
+          </div>
+          <div class="pb-2">
+            <a class="share-button btn" href="whatsapp://send?text=https%3A%2F%2Fwww.joyeuxlille.fr%2Fportes%2F4.html%2F" data-action="share/whatsapp/share" data-href="https://www.joyeuxlille.fr/" target="_blank">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            </a>
+          </div>
+          <div class="pb-2">
+            <a class="share-button btn" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.joyeuxlille.fr/portes/4.html" onclick="window.open(this.href,'left=40,top=40,height=320,width=500,toolbar=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes'); return false;">
+              <i class="fab fa-linkedin" aria-hidden="true"></i>
+            </a>
+          </div>
+          <div class="pb-2">
+            <a class="share-button btn" href="mailto:?body=https://joyeuxlille.fr/portes/4.html" target="_blank">
+              <i class="material-icons" aria-hidden="true">mail_outline</i>
+            </a>
+          </div>
+        </div>
+
+        <div class="volt-paginator__left">
+          <a class="volt-paginator__button" href="3.html"><i class="material-icons">chevron_left</i></a>
+        </div>
+        <div class="volt-paginator__right">
+          <a class="volt-paginator__button volt-disabled" href=""><i class="material-icons">chevron_right</i></a>
+        </div>
+
+        <section class="volt-content__box">
+          <div class="volt-introductory-text">
+            <h1 class="volt-site-header volt-content__header" data-i18n="A local currency">Une monnaie locale</h1>
+            <p class="volt-content__text volt-content__subheader">(<span data-i18n="See all proposals for">Voir toutes les propositions pour :</span><a href="https://voltweb.eu/doc/FR-Campagne.Municipale.Lille.2020.Propositions.Economie.Locale.v27.11.2019.pdf" target="_blank" data-i18n="Employment in the">L’emploi dans l'économie locale</a>)</p>
+            <img class="volt-door__teaser-image" src="../img/FR-Graphic.Lille.Monnaie.Locale.png" />
+            <figcaption data-i18n="Tickets Lille">Des tickets Lille</figcaption>
+            <p class="volt-content__text" data-i18n="Ensure that public money">Veiller à ce que l'argent public distribué soit également dépensé et circule localement par l'émission d'une monnaie locale comme variante du "ticket restaurant" utilisable avec une carte résidentielle. Les soldes de cartes peuvent être utilisés chez les détaillants locaux et pour payer les services publics. Les crédits peuvent être obtenus grâce à l'utilisation des transports en commun (par exemple crédit de 1€ par voyage jusqu'à l'abonnement mensuel), par des consignes pour les bouteilles en verre ou plastique ou de remboursements pour le retour de produits recyclables.</p>
+            <p class="volt-content__text" data-i18n="There are already">Il existe déjà d'autres formes d'argent que le gouvernement soutient leur utilisation est restreint. Les Chèques Vacances doivent être utilisés en France. Les Tickets Restaurant ne peuvent être utilisés que pour la nourriture. Ce principe peut être adopté localement pour qu'un argent public dépensé par Lille circule dans l'économie locale et soit utilisé pour les services publics.</p>
+            <p class="volt-content__text" data-i18n="A form of local money">Une forme de monnaie locale pourrait par exemple soutenir un système local de consigne pour les bouteilles et les matières recyclables avec les consignes versées en monnaie locale. Même pour une gratuité des transports publics au profit des Lillois en remboursant l'usage (1€ par trajet jusqu'à un abonnement mensuel). Il veille à ce que les infrastructures locales profitent aux résidents et à ce que les investissements locaux circulent localement.</p>
+            <p class="volt-content__text" data-i18n="Information Sources">Sources de renseignements</p>
+            <ul>
+              <li><a class="volt-content__source" href="https://fr.wikipedia.org/wiki/Monnaie_locale#France" target="_blank" data-i18n="Wikipedia local currency">Wikipédia - Monnaie locale</a></li>
+              <li><a class="volt-content__source" href="http://monnaie-locale-complementaire-citoyenne.net/france/" target="_blank" data-i18n="Local complementary currency">Monnaie Locale Complémentaire Citoyenne </a></li>
+              <li><a class="volt-content__source" href="https://www.spiegel.de/auto/aktuell/rom-fahrkarten-kann-man-in-italien-jetzt-mit-flaschen-zahlen-a-1290457.html" target="_blank" data-i18n="(de) Spiegel - Reimburse">(de) Spiegel - rembourser 20 bouteilles de plastique pour un billet de métro à Rome</a></li>
+            </ul>
+          </div>
+
+        </section>
+
+        <!-- cookie consent -->
+        <div class="volt-cookie__notice-wrapper volt-hidden">
+          <span class="volt-cookie__notice-text">
+            <span data-i18n="This site uses cookies">Ce site web utilise des « cookies » afin d'améliorer votre expérience et aux fins de suivi.</span>
+            <a href="https://voltweb.eu/page/france/lille/fr/site-confidentialite-des-donnees.html" target="_blank" class="volt-cookie__notice-text" data-i18n="Read our privacy policy">Consulter notre Politique de confidentialité</a>.
+          </span>
+          <form name="volt-cookie__consent" class="volt-cookie__content-form">
+            <button type="submit" class="volt-form__submit-button">
+              <span class="volt-cookie__notice-submit" data-i18n="Confirm">J'ai compris !</span>
+            </button>
+          </form>
+        </div>
+        
+      </main>
+    </div>
+
+    <div data-gadget-url="gadget_jio.html"
+      data-gadget-scope="volt_jio"
+      data-gadget-sandbox="public">
+    </div>
+  </body>
+</html>
+
+
